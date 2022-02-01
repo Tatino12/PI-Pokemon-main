@@ -4,9 +4,50 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('pokemon', {
+    id:{
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+      primaryKey: true
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true
     },
+    hp: {
+      type: DataTypes.INTEGER,
+      allowNull : true
+    },
+    attack:{
+      type: DataTypes.INTEGER,
+      allowNull : true
+    },
+    defense: {
+      type: DataTypes.INTEGER,
+      allowNull : true
+    },
+    speed: {
+      type: DataTypes.INTEGER,
+      allowNull : true
+    },
+    height: {
+      type: DataTypes.FLOAT,
+      allowNull : true
+    },
+    weight: {
+      type: DataTypes.INTEGER,
+      allowNull : true
+    },
+    sprite: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+  
+    createdInDb: { // me sirve para llamar solamente a la base de datos, para diferenciar de la api con mi DB
+      type: DataTypes.BOOLEAN,
+      allowNull : false,
+      defaultValue: true
+    }
   });
 };
