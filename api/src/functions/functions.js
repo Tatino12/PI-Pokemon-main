@@ -41,19 +41,15 @@ const axios = require("axios");
 
 const getAllPokemons = async () => {
     const infoApi = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=40");
-  
     const infoApiPokemons = infoApi.data.results;
   
-    //const infoApi1 = await axios.get(infoApi.data.next);
-  
+   //const infoApi1 = await axios.get(infoApi.data.next);
    // const infoApiPokemons1 = infoApi1.data.results;
-  
-    //const allPokeInfoApi = infoApiPokemons.concat(infoApiPokemons1);
-  
-    let subresquest = infoApiPokemons.map((el) => axios.get(el.url));
+   //const allPokeInfoApi = infoApiPokemons.concat(infoApiPokemons1);
+   let subresquest = infoApiPokemons.map((el) => axios.get(el.url));
   
     let pokemonesApi = await Promise.all(subresquest);
-   console.log(pokemonesApi)
+ 
     pokemonesApi = pokemonesApi.map((poke) => {
       return {
         id: poke.data.id,
@@ -68,7 +64,7 @@ const getAllPokemons = async () => {
         types: poke.data.types.map((el) => el.type.name),
       };
     });
-
+//console.log(pokemonesApi)    
 
 /* //Me traigo los datos de los pokemones de la Base de Datos
 const getDbInfo = async () => { // me TRAIGO LA INFO de mi Base de Datos. 
@@ -78,22 +74,21 @@ const getDbInfo = async () => { // me TRAIGO LA INFO de mi Base de Datos.
            attributes: ["name"], //traigo solo name xq el ID me lo trae junto al name solo.
            through: {           // le digo traeme el nombre del tipo de un determinado pokemon (agua,fuego ,aire etc)
                attributes: [], //el through significa : traeme el name "mediante los atributos" es una 
-                               //comprobacion que se hace siempre cuando me quiero traer una tributo
+                               //comprobacion que se hace siempre cuando me quiero traer una atributo
            }
        } 
    })
 } */
 
-const infoDb = await Pokemon.findAll({
+/*  const infoDb = await Pokemon.findAll({
     include: {
       model: Type,
       attributes: ["name"],
-      through: {
-        attributes: [],
       },
-    },
-  });
-
+  }); */ 
+ const infoDb = await Pokemon.findAll({include: Type, attributes: { exclude: ['createdAt', 'updatedAt'] }
+     }); 
+//console.log(infoDb[1].dataValues)
 
 const pokemonesDb = infoDb.map((poke) => {
     return {
@@ -106,15 +101,15 @@ const pokemonesDb = infoDb.map((poke) => {
       height: poke.dataValues.height,
       weight: poke.dataValues.weight,
       sprite: "https://giphy.com/gifs/reaction-mood-8UGGp7rQvfhe63HrFq",
-      types: poke.dataValues.Types.map((el) => el.name),
+      types: poke.dataValues.types.map((el) => el.name),
       createdInDb: poke.dataValues.createdInDb,
-    };
+    }; 
   });
-
+  
 
 //me permite unir el array que me devuelve la pokeapi (40) pokemons + los pokemons creados en la DB pokemons
   const infoTotal = [...pokemonesApi, ...pokemonesDb];
-
+//console.log(infoTotal)
   return infoTotal;
 };
 

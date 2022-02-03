@@ -104,7 +104,7 @@ const router = Router();
           height: pokemon.dataValues.height,
           weight: pokemon.dataValues.weight,
           sprite: "https://giphy.com/gifs/reaction-mood-8UGGp7rQvfhe63HrFq",
-          types: pokemon.dataValues.Types.map((el) => el.name),
+          types: pokemon.dataValues.types.map((el) => el.name),
         };
   
         pokemonId.id
