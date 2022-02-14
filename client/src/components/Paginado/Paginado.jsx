@@ -1,4 +1,5 @@
 import React from "react";
+import './Paginado.css'
 
 export default function Paginado({pokemonsPerPage, allPokemons, paginado}) { // declaro mi paginado y me traigo las propiedades del otro componente 
     const pageNumbers = []
@@ -10,17 +11,25 @@ export default function Paginado({pokemonsPerPage, allPokemons, paginado}) { // 
         //pusheo i + 1 porque sino el boton de pagina me arranca en 0 y no en 1.  
         
         return ( //aca renderizo y digo:
-            <nav>
-                <ul className = 'paginado'> 
+           
+            <div>
+      { pageNumbers && pageNumbers.map(number =>(
+        <button className='pgd_button' key={number} onClick={()=> paginado(number)}>{number}</button>
+      ))}
+    </div>
+  )
+}
+           {/* <nav>
+                <ul className='pgd_button'> 
                     { pageNumbers && pageNumbers.map(number =>( //si tengo este arreglo , 
         //mapeamelo y devolveme por ese arreglo, cada uno de los numeros que te devuelva el paginado.
-                       <li className='number' key={number}> 
+                       <li key={number}> 
                         <a onClick={() => paginado(number)}> {number} </a>
                        </li>
                     ))}
                 </ul> 
             </nav>
         )
-} // la key={number} es para que no me salgan warnings cuando guardo
+} */} // la key={number} es para que no me salgan warnings cuando guardo
 //{number} es cada una de las paginas (pokemonsPerPage) que yo necesito para renderizar a 
 //todos mis personajes (allPokemons)

@@ -1,0 +1,120 @@
+.cp_img_fondo{
+  display: grid;
+  height: 100%;
+  margin-top: 0px;
+  background-image: url("https://images4.alphacoders.com/119/thumbbig-119648.webp");
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position: center center;
+  
+}
+
+.cp_title {
+    font-size: 80px;
+    font-family: fantasy;
+    text-align: center;
+    color:rgb(243, 219, 4);
+    margin-top: 2px;
+    
+  }
+  
+  .cp_form {
+    
+    width: 100%;
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center; 
+    flex-direction: inherit;
+    color: #f6f7fa;
+    font-family: fantasy;
+    font-size: 24px;
+  }
+  
+  .cp_input {
+    width: 190px;
+    height: 30px;
+    margin-top: 1px;
+    display: grid;
+    border: 1px solid rgb(25, 230, 7);
+    border-radius: 14px;
+  }
+  
+  .cp_input:focus {
+    outline: 4px solid rgb(2, 129, 19);
+  }
+  
+  .cp_button_create {
+    font-family: cursive;
+    font-size: large;
+    font-weight: bold;
+    width: 100px;
+    height: 35px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    background: #fff;
+    color: #041f99;
+    
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border: 3px solid;
+  }
+  .cp_button_create:hover {
+    background: #1EAE98;
+    color:white
+  }
+  
+  .cp_button_return {
+    font-family: cursive;
+    font-size: large;
+    font-weight: bold;
+    width: 100px;
+    height: 35px;
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    background: #fff;
+    color: #0a31dd;
+    border: 2px solid #cf1919;
+    border-radius: 10px;
+  }
+  .cp_button_return:hover {
+    background: #b32e06;
+    color:rgb(255, 255, 255);
+  }
+  
+  .cp_types_box {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 65px;
+  }
+  
+  .cp_types {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 0px;
+    margin: 20px;
+    align-items: center;
+    justify-content:space-around;
+  }
+ 
+  
+  
+  .cp_button_close {
+    width: max-content;
+    height: max-content;
+    margin: auto;
+    position: relative;
+    background: rgb(170, 31, 59);
+    color: #fff;
+    border-radius:8px;
+    left:80px;
+    bottom:50px;
+  }
+  
+  

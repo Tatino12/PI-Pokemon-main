@@ -1,0 +1,50 @@
+
+
+.c_card {
+    width: 275px;
+    height: 250px;
+    margin: 2px;
+    padding: 0px;
+    border: solid 3px #041f99;
+    border-radius:30%;
+    background: rgba(31, 29, 29, 0.39);
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.c_sprite img{
+    width: 100px;
+    height: 120px;
+    margin: 0px;
+}
+
+
+
+.c_card h3 {
+    font-family: fantasy;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(243, 219, 4);
+    margin: 1px;
+    
+}
+
+.contain.c_types {
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.c_types h5{
+    font-family: fantasy;
+    font-size: 20px;
+    margin: 0px;
+    color: white
+}

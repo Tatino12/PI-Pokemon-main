@@ -4,7 +4,9 @@
     const initialState = {
         pokemons : [], // le pasamos un estado inicial
         allPokemons: [],
-        allTypes: []
+        allTypes: [],
+        pokemonDetails: {},
+     
     }
     
     function rootReducer (state = initialState, action){
@@ -15,11 +17,31 @@
                     pokemons: action.payload, // manda todo lo que te mande, la accion get_pokemons
                     allPokemons: action.payload
                 }
-           /*  case 'GET_TYPES':
+
+                
+               case 'GET_NAME_POKEMONS':
+            const searchName = state.allPokemons.filter((x) => {
+                return x.name.includes(action.payload)
+            });
+           return {
+                ...state,
+                pokemons: searchName, // lo hago siempre sobre pokemons 
+            }                          // porque es el arreglo que siempre estoy renderizando
+
+
+            case 'GET_TYPES':
                 return{
                     ...state,
-                    allTypes: action.payload
-                }     */
+                    allTypes: action.payload,
+                }    
+
+
+            case 'POST_POKEMONS':
+                return {
+                    ...state,
+                }
+            
+            
             case 'FILTER_TYPES':
                 //en el reducer hago la logica siempre antes del return
                 const allPokemons = state.allPokemons
@@ -45,7 +67,7 @@
                         return -1;
                     }
                     return 0;
-                }) :
+                }) : 
                 state.pokemons.sort(function (a, b) {
                     if(a.name > b.name){
                         return -1;
@@ -59,6 +81,40 @@
                     ...state,
                     pokemons: arr
                 }
+
+        
+                 case 'ORDER_BY_ATTACK':
+                    
+                   const sortAtta = action.payload === 'strong' ?
+                   state.pokemons.sort(function (a, b) {
+                       if(a.attack > b.attack) return -1; 
+                       if(b.attack > a.attack) return 1;
+                       return 0;
+                   })
+                   :
+                   state.pokemons.sort(function(a, b) {
+                    if(a.attack > b.attack) return 1; 
+                    if(b.attack > a.attack) return -1;
+                    return 0;
+                   }) 
+                   console.log(sortAtta)
+                    return {
+                        ...state,
+                        pokemons:sortAtta,
+                        
+                    }    
+                    
+                case 'GET_DETAILS':
+                    return{
+                        ...state,
+                        pokemonDetails: action.payload
+                    }
+
+                case 'CLEAN_DETAILS':
+                    return{
+                        ...state,
+                        pokemonDetails: action.payload
+                    }
 
             default:
                 return state;
