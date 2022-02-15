@@ -20,33 +20,15 @@
     
 } 
 
-/* .img2 {
-    width: 1000px;
-    height: 400px;
-    opacity: 0.4;
-}
-.img1{
-    width: 1000px;
-    height: 400px;
-    opacity: 0.5;
-   
-    
-}
-.img3{
-    width: 1000px;
-    height: 400px;
-    opacity: 0.4;
-    
-}  */
 
-.img_fondo {
+.lp_img_fondo {
     height: 773px;
     background-image: url("https://images4.alphacoders.com/119/thumbbig-119638.webp");
   background-size: cover;
     background-repeat:no-repeat;
     background-position: center center;
   } 
-  /* "https://images6.alphacoders.com/305/thumbbig-305896.webp" */
+  
 
 
 .lp_button {

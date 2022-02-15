@@ -19,17 +19,6 @@ export default function Paginado({pokemonsPerPage, allPokemons, paginado}) { // 
     </div>
   )
 }
-           {/* <nav>
-                <ul className='pgd_button'> 
-                    { pageNumbers && pageNumbers.map(number =>( //si tengo este arreglo , 
-        //mapeamelo y devolveme por ese arreglo, cada uno de los numeros que te devuelva el paginado.
-                       <li key={number}> 
-                        <a onClick={() => paginado(number)}> {number} </a>
-                       </li>
-                    ))}
-                </ul> 
-            </nav>
-        )
-} */} // la key={number} es para que no me salgan warnings cuando guardo
+          // la key={number} es para que no me salgan warnings cuando guardo
 //{number} es cada una de las paginas (pokemonsPerPage) que yo necesito para renderizar a 
 //todos mis personajes (allPokemons)

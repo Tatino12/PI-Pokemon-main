@@ -78,7 +78,7 @@ export default function Home(){
 
 
 
-    return ( // hago un boton que me diga crear pokemon  Y  un titulo pokemon app
+    return ( 
         <div className="h_img_fondo">
             <div>
 
