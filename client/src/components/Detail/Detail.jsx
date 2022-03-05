@@ -24,7 +24,7 @@ return (
             <div className="detail_body">
                 <h1 className="detail_title">I`M {myPokemon.name.toUpperCase()}</h1>
                 <img className="img" src={myPokemon.sprite} />
-                <h3>Types: {myPokemon.types.join(' ')}</h3>
+                <h3 className="detail_types">Types: {myPokemon.types.join(' ')}</h3>
                 <p>Id: {myPokemon.id} </p>
                 <p>Hp: {myPokemon.hp}</p>
                 <p>Attack: {myPokemon.attack}</p>

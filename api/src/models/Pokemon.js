@@ -44,7 +44,7 @@ module.exports = (sequelize) => {
       allowNull: true
     },
   
-    createdInDb: { // me sirve para llamar solamente a la base de datos, para diferenciar de la api con mi DB
+    createdInDb: { 
       type: DataTypes.BOOLEAN,
       allowNull : false,
       defaultValue: true

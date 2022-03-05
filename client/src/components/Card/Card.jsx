@@ -2,7 +2,7 @@ import React from "react";
 import './Card.css'
 
 
- //la card renderiza lo que yo necesito
+ 
 export default function pokeCard({ name, sprite, types}) {
     
     return ( 

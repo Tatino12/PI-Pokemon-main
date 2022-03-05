@@ -116,3 +116,11 @@
     font-size: large;
     text-decoration: none;
   }
+  
+  .h_notfound {
+  
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px white, -1px -1px #333;
+    margin-top: 3%;
+    
+  }

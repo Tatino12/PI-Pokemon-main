@@ -9,14 +9,14 @@ function validate(el) {
   if(!el.name) errors.name= 'Name must be completed'
   if(el.types.length === 0 || el.types.length > 2) errors.types = 'Types required'
   if(!el.hp || el.hp <= 0) errors.hp = 'HP required > 0'
-  //console.log(errors)
+  
   return errors
 }
 
 
 function buttonHab(p) {
     if (Object.keys(p).length === 0) return false;
-    else return true; // este objeto es unicamente para el disable del boton create
+    else return true; 
   }
 
 

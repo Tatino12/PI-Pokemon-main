@@ -2,7 +2,7 @@
    
     
     const initialState = {
-        pokemons : [], // le pasamos un estado inicial
+        pokemons : [], 
         allPokemons: [],
         allTypes: [],
         pokemonDetails: {},
@@ -14,7 +14,7 @@
             case 'GET_POKEMONS':
                 return{
                     ...state,
-                    pokemons: action.payload, // manda todo lo que te mande, la accion get_pokemons
+                    pokemons: action.payload, 
                     allPokemons: action.payload
                 }
 
@@ -25,8 +25,8 @@
             });
            return {
                 ...state,
-                pokemons: searchName, // lo hago siempre sobre pokemons 
-            }                          // porque es el arreglo que siempre estoy renderizando
+                pokemons: searchName, 
+            }                         
 
 
             case 'GET_TYPES':
@@ -43,13 +43,14 @@
             
             
             case 'FILTER_TYPES':
-                //en el reducer hago la logica siempre antes del return
                 const allPokemons = state.allPokemons
                 const typesFiltered = action.payload === 'all' ? allPokemons : allPokemons.filter(e => e.types.includes(action.payload))
                 return {
                     ...state,
                     pokemons: typesFiltered
                 }
+
+                
             case 'FILTER_CREATED':
                 const allPokemons2 = state.allPokemons
                 const createdFilter = action.payload === 'created' ? allPokemons2.filter(el => el.createdInDb) : allPokemons2.filter(el => !el.createdFilter)
@@ -59,7 +60,7 @@
                     }
             case 'ORDER_BY_NAME':
                 const arr = action.payload === 'asc' ?
-                state.pokemons.sort(function (a, b){ // el sort me compara dos valores
+                state.pokemons.sort(function (a, b){ 
                     if(a.name > b.name){
                         return 1;
                     }

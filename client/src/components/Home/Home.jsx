@@ -12,65 +12,59 @@ import './Home.css'
 export default function Home(){
 
     const dispatch = useDispatch()
-    const allPokemons = useSelector((state) => state.pokemons) //utilizo hooks
+    const allPokemons = useSelector((state) => state.pokemons) 
     
-    const [order, setOrder] = useState('') // creo un estado local vacio, lo utilizo abajo en el handleSort
+    const [order, setOrder] = useState('') 
     const [orderAttack, setOrderAttack] = useState('')
-    const [currentPage, setCurrentPage] = useState(1) // me guardo en el estado local la pagina actual,
-    // con una constante (setCurrentPage) que me setee la pagina actual... empieza en 1 xq siempre voy a arrancar en la 1er pagina
-    const [pokemonsPerPage, setPokemonsPerPage] = useState(12) // puedo poner 12 personajes por pagina
-    const indexOfLastPokemon = currentPage * pokemonsPerPage // 12 - mi pagina actual * cant de poke por pagina
-    const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage// 0 -- indice del primer pokemon(indeOfFir...)
+    const [currentPage, setCurrentPage] = useState(1) 
+   
+    const [pokemonsPerPage, setPokemonsPerPage] = useState(12) 
+    const indexOfLastPokemon = currentPage * pokemonsPerPage 
+    const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage
     const currentPokemons = allPokemons.slice(indexOfFirstPokemon, indexOfLastPokemon)
 
-    // pagina - indexOfFirst -   indexOfLast
-    //  1 -----     0       ------ 12
-    //  2 -----     13      ------ 24
-    //  3 -----     25      ------ 36
-    //  4 -----     37      ------ 48... pero solo pedi 40 pokes a la api + los que agregue de la base de datos   
+
 
     const paginado = (pageNumber) => {
-        setCurrentPage(pageNumber) // seteo la pagina en ese numero de pagina, 
-        //me va a ayudar en el renderizado, ahora cuando me desarrolle la solapa Paginado.jsx
+        setCurrentPage(pageNumber) 
+        
     }
 
 
-    //traemos del estado los pokemones cuando el componente se monta 
     useEffect(() => {
         dispatch(getPokemons());
     },[dispatch])
-//console.log(allPokemons)
 
-    //esta funcion la hago para que mi button funcione
+  
     function handleClick(e){
-            e.preventDefault(); //preventDefault se lo paso para que no se rompa 
-            dispatch(getPokemons()) // esto me lo resetea por si se bugea, y me trae todo denuevo
+            e.preventDefault(); 
+            dispatch(getPokemons()) 
             
         }
 
 
     function handleFilterPokemonsByTypes(e){
-        dispatch(filterPokemonsByTypes(e.target.value)) // devuelve lo que dice el value= (los types)normal, flying, etc 
-                                        //dependiendo de cual clikee el usuario, si clickea rock devuelve ese valor de rock
+        dispatch(filterPokemonsByTypes(e.target.value))
+        setCurrentPage(1)
+                                        
     }
 
 
     function handleFilterCreated(e){
         dispatch(filterCreated(e.target.value))
+        
     }
 
 
     function handleSort(e){
-        e.preventDefault();//Cancela el evento si este es cancelable, 
-        //sin detener el resto del funcionamiento del evento, es decir, puede ser llamado de nuevo.
+        e.preventDefault();
         dispatch(orderByName(e.target.value));
-        setCurrentPage(1); // seteo para que empiece en la pagina 1 
-        setOrder(` Ordered  ${e.target.value}` ) //para que me modifique el estado local y se renderice
+        setCurrentPage(1); 
+        setOrder(` Ordered  ${e.target.value}` ) 
     };
 
     function handleSortAttack(e){
         e.preventDefault()
-        
         dispatch(orderByAttack(e.target.value));
         setCurrentPage(1)
         setOrderAttack(`Ordered ${e.target.value}`)
@@ -81,7 +75,6 @@ export default function Home(){
     return ( 
         <div className="h_img_fondo">
             <div>
-
                 <h1 className="h_title">POKEMON APP</h1> 
                 <Link to='/pokemon'><button className='h_create_button'>Create a Pokémon</button></Link>
             
@@ -139,7 +132,7 @@ export default function Home(){
                     <div>
                      <Paginado 
                          pokemonsPerPage = { pokemonsPerPage }
-                        allPokemons = { allPokemons.length } // le paso .length porque yo necesito un valor numerico
+                        allPokemons = { allPokemons.length } 
                         paginado = { paginado } /> 
                      </div>
 
@@ -155,7 +148,7 @@ export default function Home(){
                 </div>
                 );
                 }) : 
-                <div>The pokemon you are looking for does not exist</div>
+                <div className='h_notfound'>The pokemon you are looking for does not exist</div>
                  } 
             </div>
         </div> 

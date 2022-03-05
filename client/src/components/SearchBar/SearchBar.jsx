@@ -14,14 +14,11 @@ export default function SearchBar(){
     function handleInputChange(e){
         e.preventDefault()
         setName(e.target.value)
-        
-    //console.log(name)
     }
  
     function handleSubmit(e){
         e.preventDefault()
-        dispatch(getNamePokemons(name)) // este name va a ser mi estado local, 
-        //este (name)  va a ser lo que esta escribiendo el usuario
+        dispatch(getNamePokemons(name)) 
         setName('')
     }
 

@@ -4,14 +4,11 @@ const { Pokemon, Type } = require("../db.js");
 const axios = require("axios");
 
 
-//TRAIGO LA INFO de la API //
 const getAllPokemons = async () => {
     const infoApi = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=40");
     const infoApiPokemons = infoApi.data.results;
   
-   //const infoApi1 = await axios.get(infoApi.data.next);
-   // const infoApiPokemons1 = infoApi1.data.results;
-   //const allPokeInfoApi = infoApiPokemons.concat(infoApiPokemons1);
+   
    let subresquest = infoApiPokemons.map((el) => axios.get(el.url));
   
     let pokemonesApi = await Promise.all(subresquest);
@@ -30,10 +27,9 @@ const getAllPokemons = async () => {
         types: poke.data.types.map((el) => el.type.name),
       };
     });
-//console.log(pokemonesApi)    
 
 
-  //TRAIGO LA INFO de mi Base de Datos. 
+
  const infoDb = await Pokemon.findAll({include: {
    model: Type, 
    attributes: ["name"],
@@ -61,9 +57,9 @@ const pokemonesDb = infoDb.map((poke) => {
   });
   
 
-//me permite unir el array que me devuelve la pokeapi (40) pokemons + los pokemons creados en la DB pokemons
+
   const infoTotal = [...pokemonesApi, ...pokemonesDb];
-//console.log(infoTotal)
+
   return infoTotal;
 };
 

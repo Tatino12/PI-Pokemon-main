@@ -6,10 +6,10 @@ const axios = require("axios").default;
 
 const router = Router();
 
-// RUTAS
+
 
 router.get("/", async (req, res) => {
-  const { name } = req.query; // busco si hay una propiedad llamada name en el query y me lo guardo en esa constante
+  const { name } = req.query;
 
   try {
     if (!name) {
@@ -18,12 +18,12 @@ router.get("/", async (req, res) => {
       return;
     }
 
-//peticion a la Bd
+
     const pok = await Pokemon.findOne({  
       where: { name },
     });
 
-//peticion a la Api
+
     const pokApi = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`); 
 
     const toPoke = [
@@ -57,7 +57,7 @@ router.get("/:idPokemon", async (req, res) => {
           },
         },
       });
-      // aca regresamos la respuesta de la Db
+      
       const pokemonId = {
         id: pokemon.dataValues.id,
         name: pokemon.dataValues.name,
@@ -83,7 +83,7 @@ router.get("/:idPokemon", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    //hago el post con todo lo que me va a llegar por body
+    
     const {
       name,
       hp,
@@ -100,7 +100,7 @@ router.post("/", async (req, res) => {
     if (!name) return res.status(404).send("Name is a mandatory!");
 
     let pokemonCreated = await Pokemon.create({
-      //creo el personaje con todo esto
+     
       name: name.trim(),
       hp,
       attack,
@@ -118,7 +118,7 @@ router.post("/", async (req, res) => {
     const typeMap = typesDb.map((e) => e.dataValues.id)
 
     pokemonCreated.addType(typeMap);
-    //addType es un metodo de sequelize , que me trae de la tabla Type lo que le paso(type)
+    
     
     res.status(200).send("Pokemon created successfully");
   } catch (err) {
