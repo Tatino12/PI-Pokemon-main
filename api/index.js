@@ -22,7 +22,7 @@ const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => { // el force true cada vez que yo corto el back, va a borrar toda la BD y cuando vuelva a levantar el back lo vuelve a generar denuevo
-  server.listen(3001, () => { //en cambio si el force: false, cada vez que levante la BD , se va a crear todo el tiempo si tuviera el CREATE (en index linea 71), por eso le pongo un findOrCreate( que si no esta, lo crea y listo)
+  server.listen(process.env.PORT, () => { //en cambio si el force: false, cada vez que levante la BD , se va a crear todo el tiempo si tuviera el CREATE (en index linea 71), por eso le pongo un findOrCreate( que si no esta, lo crea y listo)
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
