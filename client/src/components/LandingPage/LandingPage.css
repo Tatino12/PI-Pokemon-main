@@ -1,19 +1,15 @@
 
-
 .lp_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: -webkit-sticky;
-    margin-top: 1rem;
-    margin-left: 0rem;
-    margin-bottom: 0rem;
-    margin-right: 0rem;
+    
 }
 
 .lp_title1 {
-    font-family: fantasy;
+    font-family: cursive;
     font-size: 80px;
     color: rgb(243, 219, 4);
     margin-bottom: 20px;
@@ -22,11 +18,12 @@
 
 
 .lp_img_fondo {
-    height: 773px;
+    height: 100vh;
     background-image: url("https://images4.alphacoders.com/119/thumbbig-119638.webp");
-  background-size: cover;
+    background-size: cover;
     background-repeat:no-repeat;
     background-position: center center;
+    
   } 
   
 

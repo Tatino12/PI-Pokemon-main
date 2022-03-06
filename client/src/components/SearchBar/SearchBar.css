@@ -17,7 +17,7 @@
   
   .search_input:focus {
     color: #0d2e86;
-    outline: 3px solid #0d2e86;
+    
     font-size: 18px;
   }
 
@@ -26,8 +26,8 @@
     font-family: cursive;
     font-size: large;
     font-weight: bold;
-    width: 85px;
-    height: 80px;
+    width: 25%;
+    height: 100%;
     position: relative;
     color: #041f99;
     right: 50px;

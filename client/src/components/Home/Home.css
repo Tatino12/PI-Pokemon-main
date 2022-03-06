@@ -1,5 +1,5 @@
 .h_img_fondo{
-    height: 1320px;
+    height: 100%;
     background-image: url("https://tse3.mm.bing.net/th?id=OIP.O4Q_qIq0HJDu_h4XMn5B6gHaFj");
     background-size: cover;
     background-repeat:no-repeat;
@@ -34,14 +34,14 @@
   }
   .h_create_button:hover {
     width: 153px;
-    height: 48px;
+    height: 100%;
     background: #1EAE98;
     color: #fff;
     box-shadow: 0px 0px 4px 4px #1DB9C3;
   }
 
   .h_title {
-    font-family: fantasy;
+    font-family: cursive;
     font-size: 80px;
     color: rgb(243, 219, 4);
     margin-bottom: 12px;
@@ -52,7 +52,7 @@
     font-family: cursive;
     font-size: large;
     font-weight: bold;
-    width: 150px;
+    width: 120px;
     height: 100%;
     background: #fff;
     border: 4px solid #1EAE98;
@@ -77,10 +77,8 @@
   }
 
   .h_select_filter {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: large;
-    
-    width: 200px;
+    font-family: 'Patrick Hand';
     height: 25px;
     margin: 10px;
     color: #041f99;
@@ -112,7 +110,7 @@
   } 
    
   .h_card_link {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
     font-size: large;
     text-decoration: none;
   }

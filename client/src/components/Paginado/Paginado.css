@@ -4,7 +4,9 @@
     height:32px;
     margin: 8px;
     margin-top: 2px;
-    font-size: 30px;
+    display: inline-block;
+    text-align: center;
+    font-size: 25px;
     border-radius: 100%;
     background: #EDEDED;
     cursor: pointer;

@@ -15,12 +15,13 @@
 } 
 
 .detail_title{
+    font-family: cursive;
     margin-top: 14px;
     
 }
 .detail_body {
     font-size: 20px;
-    font-family: fantasy;
+    
     margin-top: 0px;
     color: white;
   }
